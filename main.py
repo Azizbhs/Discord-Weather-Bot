@@ -12,3 +12,6 @@ async def on_message(msg):
         return
     
     if msg.content.startswith('!hello'):
+        await msg.channel.send('Hello sir!')
+
+    
