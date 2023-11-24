@@ -1,6 +1,9 @@
 import discord
+import os
 
-client = discord.Client()
+intents = discord.Intents.default()
+intents.message_content = True
+client = discord.Client(intents = intents)
 
 @client.event
 async def on_ready():
@@ -14,4 +17,4 @@ async def on_message(msg):
     if msg.content.startswith('!hello'):
         await msg.channel.send('Hello sir!')
 
-    client.run()
+client.run(os.getenv('token'))
