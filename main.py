@@ -7,7 +7,7 @@ client = discord.Client(intents = intents)
 
 @client.event
 async def on_ready():
-    print('{0.user} is here!'.format(client))
+    print('{0.user} is logged in!'.format(client))
 
 @client.event
 async def on_message(msg):
