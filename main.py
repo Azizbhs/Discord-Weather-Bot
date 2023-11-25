@@ -1,5 +1,7 @@
 import discord
 import os
+from discord.ext import commands
+import aiohttp
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -19,5 +21,10 @@ async def on_message(msg):
     
     if msg.content.startswith('!hello'):
         await msg.channel.send('Hello sir!')
+
+@client.command()
+async def weather(ctx: commands.Context, *, city):
+    url = ""
+
 
 client.run(os.getenv('token'))
