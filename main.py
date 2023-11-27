@@ -12,11 +12,11 @@ WEATHER_API_ENDPOINT = 'https://api.openweathermap.org/data/2.5/weather'
 
 @bot.event
 async def on_ready():
-    print('{0.user} is logged in!'.format(client))
+    print('{0.user} is logged in!'.format(bot))
 
 @bot.event
 async def on_message(msg):
-    if msg.author == client.user:
+    if msg.author == bot.user:
         return
     
     if msg.content.startswith('!hello'):
