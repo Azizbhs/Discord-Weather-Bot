@@ -2,6 +2,13 @@ import discord
 import os
 from discord.ext import commands
 import aiohttp
+from dotenv import load_dotenv
+
+load_dotenv()
+
+token = os.getenv('token')
+key = os.getenv('KEY')
+
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -26,7 +33,7 @@ async def on_message(msg):
 async def weather(ctx: commands.Context, *, city):
     url = "http://api.weatherapi.com/v1/current.json" 
     params = {
-        "key": os.getenv('KEY'),     #can be wrong
+        "key": os.getenv(key),     #can be wrong
         "q": city
     }
     
@@ -51,4 +58,4 @@ async def weather(ctx: commands.Context, *, city):
            await ctx.send(embed=embed)
 
 
-bot.run(os.getenv('token'))
+bot.run(token)
