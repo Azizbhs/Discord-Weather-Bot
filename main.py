@@ -37,6 +37,11 @@ async def weather(ctx: commands.Context, *, city):
            location = data["location"]["name"]
            temp_c = data["current"]["temp_c"]
            temp_f = data["current"]["temp_f"]
+           humidity = data["current"]["humidity"]
+           wind_kph = data["current"]["wind_kph"]
+           condition = data["current"]["condition"]["text"]
+           image_url = "http:" + data["current"]["condition"]["icon"]
 
+           embed = discord.Embed(title=f"weather for {location}", description=f"The condition in {location} is {condition}")
 
 client.run(os.getenv('token'))
