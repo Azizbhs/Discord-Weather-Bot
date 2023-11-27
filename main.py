@@ -5,16 +5,16 @@ import aiohttp
 
 intents = discord.Intents.default()
 intents.message_content = True
-client = discord.Client(intents = intents)
+bot = commands.Bot(command_prefix='!', intents=intents)
 
 API = 'YOUR_WEATHER_API_KEY'
 WEATHER_API_ENDPOINT = 'https://api.openweathermap.org/data/2.5/weather'
 
-@client.event
+@bot.event
 async def on_ready():
     print('{0.user} is logged in!'.format(client))
 
-@client.event
+@bot.event
 async def on_message(msg):
     if msg.author == client.user:
         return
@@ -22,7 +22,7 @@ async def on_message(msg):
     if msg.content.startswith('!hello'):
         await msg.channel.send('Hello sir!')
 
-@client.command()
+@bot.command()
 async def weather(ctx: commands.Context, *, city):
     url = "http://api.weatherapi.com/v1/current.json" 
     params = {
@@ -51,4 +51,4 @@ async def weather(ctx: commands.Context, *, city):
            await ctx.send(embed=embed)
 
 
-client.run(os.getenv('token'))
+bot.run(os.getenv('token'))
