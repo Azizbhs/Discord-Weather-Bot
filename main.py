@@ -27,7 +27,7 @@ async def weather(ctx: commands.Context, *, city):
     url = "http://api.weatherapi.com/v1/current.json" 
     params = {
         "key": os.getenv('KEY'),     #can be wrong
-        "q":city
+        "q": city
     }
 
 
