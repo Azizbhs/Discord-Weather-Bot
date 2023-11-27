@@ -24,7 +24,8 @@ async def on_message(msg):
 
 @client.command()
 async def weather(ctx: commands.Context, *, city):
-    url = ""
+    url = "http://api.weatherapi.com/v1/current.json"
+    
 
 
 client.run(os.getenv('token'))
