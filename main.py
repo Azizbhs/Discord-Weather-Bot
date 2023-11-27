@@ -34,5 +34,9 @@ async def weather(ctx: commands.Context, *, city):
         async with session.get(url, params=params) as res:
            data = await res.json()
 
+           location = data["location"]["name"]
+           temp_c = data["current"]["temp_c"]
+           temp_f = data["current"]["temp_f"]
+
 
 client.run(os.getenv('token'))
