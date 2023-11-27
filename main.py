@@ -48,5 +48,7 @@ async def weather(ctx: commands.Context, *, city):
            embed.add_field(name="Wind Speeds", value=f"{wind_kph}")
            embed.set_thumbnail(url=image_url)
 
+           await ctx.send(embed=embed)
+
 
 client.run(os.getenv('token'))
