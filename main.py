@@ -29,7 +29,10 @@ async def weather(ctx: commands.Context, *, city):
         "key": os.getenv('KEY'),     #can be wrong
         "q": city
     }
-
+    
+    async with aiohttp.ClientSession() as session: 
+        async with session.get(url, params=params) as res:
+           data = await res.json()
 
 
 client.run(os.getenv('token'))
