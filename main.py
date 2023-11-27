@@ -43,5 +43,10 @@ async def weather(ctx: commands.Context, *, city):
            image_url = "http:" + data["current"]["condition"]["icon"]
 
            embed = discord.Embed(title=f"weather for {location}", description=f"The condition in {location} is {condition}")
+           embed.add_field(name="Temperature", value=f"C: {temp_c} | F: {temp_f}")
+           embed.add_field(name="Humidity", value=f"{humidity}")
+           embed.add_field(name="Wind Speeds", value=f"{wind_kph}")
+           embed.set_thumbnail(url=image_url)
+
 
 client.run(os.getenv('token'))
