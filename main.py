@@ -30,7 +30,7 @@ async def on_message(msg):
 async def weather(ctx: commands.Context, *, city):
     url = "http://api.weatherapi.com/v1/current.json" 
     params = {
-        "key": os.getenv(key),
+        "key": key,
         "q": city
     }
     
