@@ -14,9 +14,6 @@ intents = discord.Intents.default()
 intents.message_content = True
 bot = commands.Bot(command_prefix='!', intents=intents)
 
-API = 'YOUR_WEATHER_API_KEY'
-WEATHER_API_ENDPOINT = 'https://api.openweathermap.org/data/2.5/weather'
-
 @bot.event
 async def on_ready():
     print('{0.user} is logged in!'.format(bot))
