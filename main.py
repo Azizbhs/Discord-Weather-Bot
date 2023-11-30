@@ -20,7 +20,7 @@ async def on_ready():
 
 @bot.command()
 async def hello(ctx):
-    await ctx.send('Hello sir!')  
+    await ctx.send('Hello sir! hope you are having a great day!')  
 
 @bot.command()
 async def weather(ctx: commands.Context, *, city):
