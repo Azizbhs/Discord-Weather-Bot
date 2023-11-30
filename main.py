@@ -54,7 +54,7 @@ async def weather(ctx: commands.Context, *, city):
             embed = discord.Embed(title=f"Weather for {location}", description=f"The condition in {location} is {condition}")
             embed.add_field(name="Temperature", value=f"C: {temp_c} | F: {temp_f}")
             embed.add_field(name="Humidity", value=f"{humidity}")
-            embed.add_field(name="Wind Speeds", value=f"{wind_kph}")
+            embed.add_field(name="Wind Speeds", value=f"{wind_kph} kph")
             embed.set_thumbnail(url=image_url)
 
             await ctx.send(embed=embed)
