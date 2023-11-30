@@ -19,6 +19,10 @@ async def on_ready():
     print('{0.user} is logged in!'.format(bot))
 
 @bot.command()
+async def hello(ctx):
+    await ctx.send('Hello sir!')  
+
+@bot.command()
 async def weather(ctx: commands.Context, *, city):
     print("Weather command invoked with city:", city)
 
