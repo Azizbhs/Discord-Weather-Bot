@@ -74,7 +74,7 @@ async def on_message(message):
 
     if "well done" in content_lower:
         # Respond with an emoji (thumbs up emoji in this case)
-        emoji = '\U0001F970'  # Unicode for 👍
+        emoji = '\U0001F970'  
         await message.add_reaction(emoji)
 
     await bot.process_commands(message)
