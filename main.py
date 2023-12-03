@@ -23,6 +23,10 @@ async def hello(ctx):
     await ctx.send('Hello sir! hope you are having a great day!')  
 
 @bot.command()
+async def masmoudi(ctx):
+    await ctx.send("He's a 9ahba sir!")
+
+@bot.command()
 async def weather(ctx: commands.Context, *, city):
     print("Weather command invoked with city:", city)
 
@@ -53,7 +57,7 @@ async def weather(ctx: commands.Context, *, city):
 
             embed = discord.Embed(title=f"Weather for {location}", description=f"The condition in {location} is {condition}")
             embed.add_field(name="Temperature", value=f"C: {temp_c} | F: {temp_f}")
-            embed.add_field(name="Humidity", value=f"{humidity}")
+            embed.add_field(name="Humidity", value=f"{humidity}%")
             embed.add_field(name="Wind Speeds", value=f"{wind_kph} kph")
             embed.set_thumbnail(url=image_url)
 
@@ -61,5 +65,18 @@ async def weather(ctx: commands.Context, *, city):
 
             await ctx.send(embed=embed)
 
+@bot.event
+async def on_message(message):
+    if message.author == bot.user:
+        return
+
+    content_lower = message.content.lower()
+
+    if "well done" in content_lower:
+        # Respond with an emoji (thumbs up emoji in this case)
+        emoji = '\U0001F970'  # Unicode for 👍
+        await message.add_reaction(emoji)
+
+    await bot.process_commands(message)
 
 bot.run(token)
