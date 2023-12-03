@@ -23,10 +23,6 @@ async def hello(ctx):
     await ctx.send('Hello sir! hope you are having a great day!')  
 
 @bot.command()
-async def masmoudi(ctx):
-    await ctx.send("He's a 9ahba sir!")
-
-@bot.command()
 async def weather(ctx: commands.Context, *, city):
     print("Weather command invoked with city:", city)
 
@@ -65,18 +61,5 @@ async def weather(ctx: commands.Context, *, city):
 
             await ctx.send(embed=embed)
 
-@bot.event
-async def on_message(message):
-    if message.author == bot.user:
-        return
-
-    content_lower = message.content.lower()
-
-    if "well done" in content_lower:
-        # Respond with an emoji (thumbs up emoji in this case)
-        emoji = '\U0001F970'  
-        await message.add_reaction(emoji)
-
-    await bot.process_commands(message)
 
 bot.run(token)
